@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101722">
+  <title>Wonderwall — Voice-Controlled Art Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Wonderwall home">
+      <span class="brand-mark">W</span>
+      <span>WONDER<span class="brand-light">WALL</span><small>AN ART GALLERY YOU CAN SPEAK TO</small></span>
+    </a>
+    <div class="top-right"><span class="live-dot"></span><span id="connectionText">Checking model…</span></div>
+  </header>
+
+  <main>
+    <section id="entrance" class="entrance view active">
+      <div class="entrance-copy">
+        <p class="eyebrow"><span></span> YOUR OWN LITTLE ESCAPE</p>
+        <h1>Somewhere<br>beautiful is<br><em>one word away.</em></h1>
+        <p class="intro">A tiny box. An endless world of landscapes. Use your voice to wander through nature, one painting at a time.</p>
+        <div class="voice-controls">
+          <button id="startVoice" class="primary-btn"><span class="mic-icon">🎙</span><span id="startVoiceText">Start voice control</span><span class="btn-arrow">↗</span></button>
+          <button id="openWithClick" class="text-btn">Or open the box <span>→</span></button>
+        </div>
+        <p class="hint"><kbd>ON</kbd> open the gallery <span>·</span> <kbd>OFF</kbd> return to the box</p>
+        <div class="status-line"><span id="statusDot" class="status-dot"></span><span id="statusText">Ready when you are</span></div>
+      </div>
+      <div class="box-scene" aria-label="Illustration of a magical cartoon box">
+        <div class="moon"></div><div class="spark spark-a">✦</div><div class="spark spark-b">✧</div><div class="spark spark-c">✦</div>
+        <div class="pedestal"></div>
+        <div id="magicBox" class="magic-box">
+          <div class="box-glow"></div>
+          <div id="boxLid" class="box-lid"><div class="lid-top"></div><div class="lid-front"></div><div class="lid-side"></div><div class="lid-ribbon"></div></div>
+          <div class="box-body"><div class="box-front"><div class="box-emblem">✦</div><div class="box-ribbon"></div></div><div class="box-side"></div><div class="box-inside"></div></div>
+        </div>
+        <div class="scene-caption"><span class="caption-line"></span><span>THE WORLD INSIDE</span><span class="caption-line"></span></div>
+      </div>
+    </section>
+
+    <section id="gallery" class="gallery view">
+      <div class="gallery-heading">
+        <div><p class="eyebrow"><span></span> THE WORLD INSIDE</p><h2>Take the <em>scenic route.</em></h2><p class="gallery-subtitle">Every direction is another little escape.</p></div>
+        <button id="closeBox" class="close-btn"><span>↩</span> Close the box <kbd>OFF</kbd></button>
+      </div>
+      <nav id="categoryBar" class="category-bar" aria-label="Painting categories"></nav>
+      <div class="wall-topline"><span><span class="live-dot"></span> THE INFINITE WALL</span><span id="positionLabel">Painting 01</span><span class="wall-help">Say <b>LEFT</b>, <b>RIGHT</b>, <b>UP</b> or <b>DOWN</b></span></div>
+      <div class="wall-shell">
+        <button class="nav-arrow nav-left" id="moveLeft" aria-label="Previous painting">←</button>
+        <div id="paintingWall" class="painting-wall" tabindex="0" aria-label="Painting wall"></div>
+        <button class="nav-arrow nav-right" id="moveRight" aria-label="Next painting">→</button>
+      </div>
+      <div class="gallery-bottom">
+        <div class="voice-indicator"><span class="pulse-ring"></span><div><strong id="galleryVoiceStatus">Voice control is ready</strong><small>Speak clearly, one command at a time</small></div></div>
+        <div class="direction-pad" aria-label="Directional controls"><button id="moveUp" aria-label="Move up">↑</button><div><button id="moveLeftSmall" aria-label="Move left">←</button><button id="moveDown" aria-label="Move down">↓</button><button id="moveRightSmall" aria-label="Move right">→</button></div></div>
+      </div>
+      <p class="source-note">Demo landscape images are loaded from Unsplash. Use the Pinterest links on each artwork to discover inspiration; see README to replace demo images with images you have permission to use.</p>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <footer><span>WONDERWALL © 2026</span><span>MADE FOR CURIOUS MINDS <span class="footer-star">✦</span></span></footer>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+.pytest_cache/
+.mypy_cache/
+.DS_Store
+Recordings/
+Recordings_WAV/
+data/
+datasets/
